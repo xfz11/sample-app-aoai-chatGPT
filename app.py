@@ -549,7 +549,7 @@ def conversation_without_data(request_body):
 
     response = openai.ChatCompletion.create(
         # engine=AZURE_OPENAI_MODEL,
-        model="gpt-4",
+        model="gpt-4-1106-preview",
         messages = messages,
         temperature=float(AZURE_OPENAI_TEMPERATURE),
         max_tokens=int(AZURE_OPENAI_MAX_TOKENS),
