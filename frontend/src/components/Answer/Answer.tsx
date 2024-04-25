@@ -10,6 +10,10 @@ import { parseAnswer } from "./AnswerParser";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import supersub from 'remark-supersub'
+import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
+
+import 'katex/dist/katex.min.css'
 
 interface Props {
     answer: AskResponse;
@@ -62,7 +66,8 @@ export const Answer = ({
                 <Stack.Item grow>
                     <ReactMarkdown
                         linkTarget="_blank"
-                        remarkPlugins={[remarkGfm, supersub]}
+                        remarkPlugins={[remarkGfm, supersub, remarkMath]}
+                        rehypePlugins={[rehypeKatex]}
                         children={parsedAnswer.markdownFormatText}
                         className={styles.answerText}
                     />
